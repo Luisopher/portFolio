@@ -2,63 +2,20 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Luis.css";
 
-interface Title {
-  title: string;
-  altTitle: string;
-  path: string;
-}
-
-const initialTitles: Title[] = [
-  { title: "Hello", altTitle: "About", path: "/about" },
-  { title: "I am", altTitle: "Work", path: "/work" },
-  { title: "Luis", altTitle: "Contact", path: "/contact" },
-];
-
 const Luis = () => {
-  const [titles, setTitles] = useState<Title[]>(initialTitles);
-  const navigate = useNavigate();
-
-  const handleTitleHover = (index: number) => {
-    const newTitles = [...titles];
-    const { title, altTitle } = newTitles[index];
-    if (title !== altTitle) {
-      newTitles[index].title = altTitle;
-      newTitles[index].altTitle = title;
-      setTitles(newTitles);
-    }
-  };
-
-  const handleTitleLeave = (index: number) => {
-    const newTitles = [...titles];
-    const { title, altTitle, path } = newTitles[index];
-    if (title !== altTitle) {
-      newTitles[index].altTitle = title;
-      newTitles[index].title = altTitle;
-      setTitles(newTitles);
-    }
-  };
-
-  const handleTitleClick = (path: string) => {
-    navigate(path);
-  };
-
   return (
     <>
-      <div className="main">
-        <div className="title">
-          {titles.map((title, index) => (
-            <div className="title_text" key={index}>
-              <div
-                onMouseEnter={() => handleTitleHover(index)}
-                onMouseLeave={() => handleTitleLeave(index)}
-                onClick={() => handleTitleClick(title.path)}>
-                {title.title}
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="photoBox">
-          <div className="bg-image" />
+      <div className="luis_main">
+        <div className="luis_container">
+          <h3>Hello, everyOne</h3>
+          <div className="luis_text">
+            I’m <span className="main_name"> Luis </span> stack Web Developer
+            <p className="main_content">
+              저는 효율적이고 확장 가능한 코드를 작성하여 웹 애플리케이션의
+              성능과 안정성을 유지하며 사용자들이 즐겁게 사용할 수 있는
+              인터페이스를 구현합니다.
+            </p>
+          </div>
         </div>
       </div>
     </>

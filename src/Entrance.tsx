@@ -1,78 +1,74 @@
-import React, { useRef, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
+
+import Luis from "./Components/Luis";
+import Header from "./Components/Header";
+import TimeLine from "./Components/TimeLine";
+import Work from "./Components/Work";
+import Footer from "./Components/Footer";
 import "./Entrance.css";
-const Entrance = () => {
-  type Coordinate = {
-    x: number;
-    y: number;
-  };
 
-  type DrawState = {
-    isDrawing: boolean;
-    lastPosition: Coordinate;
-  };
+function Entrance(): JSX.Element {
+  const completionText = "나를 알고싶은 모든 사람들을 위한 페이지";
+  const [displayText, setDisplayText] = useState("");
+  const [typingComplete, setTypingComplete] = useState(false);
+  const [showLuis, setShowLuis] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const boxRef = useRef<HTMLDivElement>(null);
 
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  useLayoutEffect(() => {
+    if (typingComplete && boxRef.current && containerRef.current) {
+      const boxHeight = boxRef.current.offsetHeight;
+      containerRef.current.style.height = `${boxHeight}px`;
+      setShowLuis(true);
+    }
+  }, [typingComplete]);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const drawState: DrawState = {
-      isDrawing: false,
-      lastPosition: { x: 0, y: 0 },
-    };
-
-    const updateLastPosition = (event: MouseEvent): void => {
-      drawState.lastPosition = {
-        x: event.clientX - canvas.offsetLeft,
-        y: event.clientY - canvas.offsetTop,
-      };
-    };
-
-    const startDrawing = (event: MouseEvent): void => {
-      drawState.isDrawing = true;
-      updateLastPosition(event);
-    };
-
-    const stopDrawing = (): void => {
-      drawState.isDrawing = false;
-    };
-
-    const drawLine = (event: MouseEvent): void => {
-      if (!drawState.isDrawing) return;
-
-      const ctx = canvas.getContext("2d");
-      if (!ctx) return;
-
-      const currentPosition: Coordinate = {
-        x: event.clientX - canvas.offsetLeft,
-        y: event.clientY - canvas.offsetTop,
-      };
-
-      ctx.beginPath();
-      ctx.moveTo(drawState.lastPosition.x, drawState.lastPosition.y);
-      ctx.lineTo(currentPosition.x, currentPosition.y);
-      ctx.stroke();
-
-      drawState.lastPosition = currentPosition;
-    };
-
-    canvas.addEventListener("mousedown", startDrawing);
-    canvas.addEventListener("mouseup", stopDrawing);
-    canvas.addEventListener("mousemove", drawLine);
-
-    return () => {
-      canvas.removeEventListener("mousedown", startDrawing);
-      canvas.removeEventListener("mouseup", stopDrawing);
-      canvas.removeEventListener("mousemove", drawLine);
-    };
-  }, [canvasRef]);
+    let i = 0;
+    const typingInterval = setInterval(() => {
+      setDisplayText((prevDisplayText) => {
+        const nextChar = completionText.charAt(i);
+        i++;
+        if (i > completionText.length) {
+          clearInterval(typingInterval);
+          setTimeout(() => {
+            setTypingComplete(true);
+          }, 1000);
+        }
+        return prevDisplayText + nextChar;
+      });
+    }, 100);
+    return () => clearInterval(typingInterval);
+  }, [completionText]);
 
   return (
-    <div className="canvas-wrapper">
-      <canvas ref={canvasRef} id="my-canvas"></canvas>
-    </div>
+    <>
+      <div className="container" ref={containerRef}>
+        <div className="box" ref={boxRef}>
+          {!typingComplete && (
+            <h1 className="main_text" style={{ textAlign: "center" }}>
+              {displayText}
+            </h1>
+          )}
+          {typingComplete && (
+            <div
+              className="overlay"
+              style={{ display: showLuis ? "none" : "block" }}
+            />
+          )}
+        </div>
+      </div>
+      {showLuis && (
+        <div className="luis">
+          <Header />
+          <Luis />
+          <TimeLine />
+          <Work />
+          <Footer />
+        </div>
+      )}
+    </>
   );
-};
+}
 
 export default Entrance;

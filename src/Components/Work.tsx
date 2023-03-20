@@ -1,11 +1,8 @@
-import React from 'react';
+import React from "react";
+import "./Work.css";
 
 const Work = () => {
-  return (
-    <div>
-      
-    </div>
-  );
+  return <>asdasd</>;
 };
 
 export default Work;

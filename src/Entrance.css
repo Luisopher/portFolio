@@ -1,13 +1,47 @@
-.canvas-wrapper {
+@font-face {
+  font-family: "TheJamsil5Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2")
+    format("woff2");
+  font-weight: 900;
+  font-style: normal;
+}
+
+body {
+  background-color: black;
+}
+
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+  overflow: hidden;
 }
 
-#my-canvas {
-  background-color: white;
-  margin-top: 30%;
+.box {
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  color: white;
+  opacity: 1;
+  animation-name: fadeOut;
+  animation-duration: 1s;
+  animation-delay: 2.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
+.luis {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
 }
