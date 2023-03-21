@@ -17,6 +17,19 @@ body {
   height: 100vh;
   width: 100%;
   overflow: hidden;
+  animation-name: fadeEnd;
+  animation-duration: 1s;
+  animation-delay: 2.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeEnd {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
 }
 
 .box {
@@ -39,9 +52,4 @@ body {
     opacity: 0;
     display: none;
   }
-}
-.luis {
-  position: absolute;
-  height: 100vh;
-  width: 100%;
 }

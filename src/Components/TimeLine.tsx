@@ -4,7 +4,11 @@ import "./TimeLine.css";
 function TimeLine() {
   return (
     <>
-      <div className="timeLine_main"></div>
+      <div className="timeLine_main">
+        <div className="timeLine_container">
+          <h1>timeLine</h1>
+        </div>
+      </div>
     </>
   );
 }

@@ -1,4 +1,9 @@
-body {
+.work_main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
-  z-index: 1;
+  min-width: 400px;
+  color: white;
+  background-color: blueviolet;
 }
