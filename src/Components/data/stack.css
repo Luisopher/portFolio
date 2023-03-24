@@ -1,0 +1,17 @@
+/* 나의 stack bar설정 */
+.stackMain {
+  padding-top: 70px;
+  width: 100vh;
+  display: flex;
+}
+.myStack {
+  width: 900px;
+  height: 700px;
+  margin: 200px auto 100px;
+  color: white;
+  display: flex;
+}
+.stack_circle {
+  width: 200px;
+  height: 200px;
+}

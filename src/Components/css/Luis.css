@@ -10,6 +10,7 @@
 .luis_container {
   color: white;
   width: 50%;
+  margin-top: 300px;
 }
 .luis_text {
   font-size: 40px;

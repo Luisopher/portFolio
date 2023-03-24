@@ -1,5 +1,5 @@
 import React from "react";
-import "./TimeLine.css";
+import "./css/TimeLine.css";
 
 function TimeLine() {
   return (

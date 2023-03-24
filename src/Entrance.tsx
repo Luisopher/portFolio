@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
 
 import Luis from "./Components/Luis";
-import Header from "./Components/Header";
+import Header from "./pages/Header";
 import TimeLine from "./Components/TimeLine";
 import Work from "./Components/Work";
-import Footer from "./Components/Footer";
+import Footer from "./pages/Footer";
 import About from "./Components/About";
 import "./Entrance.css";
+
 const SCROLL_AMOUNT = 937;
 function Entrance(): JSX.Element {
   const completionText = "나를 알고싶은 모든 사람들을 위한 페이지";
