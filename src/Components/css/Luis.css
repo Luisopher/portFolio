@@ -5,12 +5,13 @@
   height: 100vh;
   width: 100%;
   min-width: 400px;
+  min-height: 600px;
 }
 
 .luis_container {
   color: white;
   width: 50%;
-  margin-top: 300px;
+  margin-top: 15%;
 }
 .luis_text {
   font-size: 40px;

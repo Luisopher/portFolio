@@ -1,17 +1,23 @@
 /* 나의 stack bar설정 */
 .stackMain {
   padding-top: 70px;
-  width: 100vh;
   display: flex;
+  height: 300px;
 }
 .myStack {
-  width: 900px;
-  height: 700px;
-  margin: 200px auto 100px;
+  width: 700px;
+  height: 30%;
   color: white;
   display: flex;
+  flex-wrap: wrap;
 }
 .stack_circle {
   width: 200px;
   height: 200px;
+}
+.stackName {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+
 }

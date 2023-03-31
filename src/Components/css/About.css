@@ -6,23 +6,14 @@
   color: black;
   background-color: rgb(185, 100, 100);
   display: flex;
-  flex-direction: column;
+}
+.about_mainContainer {
+  width: 80%;
 }
 
-.aboutTitle {
-  width: 100%;
-  font-size: 50px;
-  font-weight: 700;
-  margin: 0;
-  padding: 0;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
 .about_info {
   width: 80%;
-  height: 800px;
+  height: 80%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -32,7 +23,7 @@
   width: 50%;
   width: 350px;
   height: 430px;
-  background-image: url(../../Img/석지훈2.png);
+  background-image: url(../../Img/titlePhoto.png);
   background-size: contain;
   background-repeat: no-repeat;
   display: flex;
@@ -42,6 +33,7 @@
   margin-left: 300px;
   display: flex;
   justify-content: flex-start;
-  width: 50%;
+  width: 40%;
   font-size: 30px;
+  flex-wrap: wrap;
 }

@@ -8,7 +8,7 @@ import Footer from "./pages/Footer";
 import About from "./Components/About";
 import "./Entrance.css";
 
-const SCROLL_AMOUNT = 937;
+const SCROLL_AMOUNT = 927;
 function Entrance(): JSX.Element {
   const completionText = "나를 알고싶은 모든 사람들을 위한 페이지";
   const [displayText, setDisplayText] = useState("");

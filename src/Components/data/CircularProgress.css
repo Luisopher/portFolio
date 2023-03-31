@@ -15,4 +15,16 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative; /* add position relative to parent container */
+}
+
+.propsName {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 10px;
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
